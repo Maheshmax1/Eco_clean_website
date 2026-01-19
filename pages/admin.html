@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | 🌿 EcoClean</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h2 id="nav-logo">🌿 EcoClean Admin</h2>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="#"><i class="fas fa-bell"></i> Alerts</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-wrapper container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#dashboard" class="active-page"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#volunteers-section"><i class="fas fa-hands-helping"></i> Volunteers</a></li>
+                <li><a href="#events-section"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="#messages-section"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="../index.html"><i class="fas fa-globe"></i> View Website </a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div id="dashboard">
+                <h1 class="page-title">Admin Dashboard Overview</h1>
+                <p class="welcome-message">Welcome back! Manage your EcoClean community efficiently. 🌱</p>
+
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-leaf icon-large"></i>
+                        <h3>Waste Diverted (Year)</h3>
+                        <p class="stat-value">500,000 kg</p>
+                        <span class="stat-trend"><i class="fas fa-chart-line"></i> +90% Growth</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users icon-large"></i>
+                        <h3>Active Volunteers</h3>
+                        <p class="stat-value">50,000+</p>
+                        <span class="stat-trend"><i class="fas fa-arrow-up"></i> 12,000+ this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt icon-large"></i>
+                        <h3>Upcoming Events</h3>
+                        <p class="stat-value">4</p>
+                        <span class="stat-trend"><i class="fas fa-dot-circle"></i> 3 Future Events</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check icon-large"></i>
+                        <h3>Completed Events</h3>
+                        <p class="stat-value">2,500+</p>
+                        <span class="stat-trend"><i class="fas fa-check-circle"></i> 420+ this month</span>
+                    </div>
+                </section>
+            </div>
+
+            <div id="website-section">
+                <h2 class="section-title">Website Statistics</h2>
+                <section class="website-stats-grid">
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-eye"></i> Total Visitors</h4>
+                        <p class="website-stat-value">125,430</p>
+                    </div>
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-users"></i> Active Users</h4>
+                        <p class="website-stat-value">3,245</p>
+                    </div>
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-mouse-pointer"></i> Page Views</h4>
+                        <p class="website-stat-value">487,920</p>
+                    </div>
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-clock"></i> Avg. Session</h4>
+                        <p class="website-stat-value">4:32m</p>
+                    </div>
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-percentage"></i> Bounce Rate</h4>
+                        <p class="website-stat-value">32.5%</p>
+                    </div>
+                    <div class="website-stat-card">
+                        <h4><i class="fas fa-chart-line"></i> Growth Rate</h4>
+                        <p class="website-stat-value">+18.3%</p>
+                    </div>
+                </section>
+            </div>
+
+            <div id="volunteers-section">
+                <h2 class="section-title">Volunteer Applications</h2>
+                <div class="table-container card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Interest</th>
+                                <th>Availability</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Priya Sharma</td>
+                                <td>priya@example.com</td>
+                                <td>Beach Cleanups</td>
+                                <td>Weekends Only</td>
+                                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Rajesh Kumar</td>
+                                <td>rajesh@example.com</td>
+                                <td>Tree Plantation</td>
+                                <td>Flexible</td>
+                                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ananya Reddy</td>
+                                <td>ananya@example.com</td>
+                                <td>Awareness Campaigns</td>
+                                <td>Weekends Only</td>
+                                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Vikram Singh</td>
+                                <td>vikram@example.com</td>
+                                <td>Beach Cleanups</td>
+                                <td>Flexible</td>
+                                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Meera Patel</td>
+                                <td>meera@example.com</td>
+                                <td>Tree Plantation</td>
+                                <td>Weekdays</td>
+                                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i> View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="events-section">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-list card">
+                    <div class="event-item">
+                        <div class="event-details">
+                            <p class="event-id">ECO-2025-101</p>
+                            <p class="event-name">Marina Beach Cleanup Drive</p>
+                            <p class="event-time">15 Dec 2025 | 7:00 AM - 10:00 AM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-details">
+                            <p class="event-id">ECO-2025-102</p>
+                            <p class="event-name">City Park Green Initiative</p>
+                            <p class="event-time">18 Dec 2025 | 6:30 AM - 9:30 AM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-details">
+                            <p class="event-id">ECO-2025-103</p>
+                            <p class="event-name">Community Recycling Workshop</p>
+                            <p class="event-time">22 Dec 2025 | 5:00 PM - 7:00 PM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-details">
+                            <p class="event-id">ECO-2025-104</p>
+                            <p class="event-name">Neighborhood Clean Streets Campaign</p>
+                            <p class="event-time">28 Dec 2025 | 8:00 AM - 11:00 AM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </div>
+                    <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> Add New Event</button>
+                </div>
+            </div>
+
+            <div id="messages-section">
+                <h2 class="section-title">Contact Form Messages</h2>
+                <div class="messages-container card">
+                    <div class="message-summary">
+                        <p><strong>General Inquiry:</strong> Need response soon - Regarding event ECO-2025-101</p>
+                        <span class="message-date">Dec 4, 2025</span>
+                        <button class="action-btn view-btn view-btn-small"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                    <div class="message-summary">
+                        <p><strong>Partnership Opportunity:</strong> Corporate sponsorship request for upcoming events
+                        </p>
+                        <span class="message-date">Dec 3, 2025</span>
+                        <button class="action-btn view-btn view-btn-small"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                    <div class="message-summary">
+                        <p><strong>Volunteer Question:</strong> Inquiry about volunteer training programs</p>
+                        <span class="message-date">Dec 2, 2025</span>
+                        <button class="action-btn view-btn view-btn-small"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                    <div class="message-summary">
+                        <p><strong>Event Feedback:</strong> Positive feedback from Marina Beach cleanup attendee</p>
+                        <span class="message-date">Dec 1, 2025</span>
+                        <button class="action-btn view-btn view-btn-small"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                    <div class="message-summary">
+                        <p><strong>Media Request:</strong> Local news channel wants to cover next event</p>
+                        <span class="message-date">Nov 30, 2025</span>
+                        <button class="action-btn view-btn view-btn-small"><i class="fas fa-eye"></i> View</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    
+</body>
+
+</html>

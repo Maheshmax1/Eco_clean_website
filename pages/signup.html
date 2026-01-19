@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - EcoClean</title>
+
+    <!-- Existing Styles (DO NOT CHANGE) -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <link rel="icon" href="../assets/sustainability.png" />
+</head>
+
+<body>
+
+    <!-- Header / Navbar (UNCHANGED) -->
+    <header>
+        <div class="container">
+            <nav>
+                <h2 id="nav-logo">🌿 EcoClean</h2>
+                <ul id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="signup.html" class="active-page">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sign Up Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <h2>Create Account</h2>
+            <p>Join EcoClean and participate in clean & green events</p>
+
+            <form class="login-form">
+
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required
+                        placeholder="Enter your full name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                        placeholder="your.email@example.com" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required
+                        placeholder="+91 98765 43210" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" required
+                        placeholder="Create a strong password" />
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required
+                        placeholder="Re-enter your password" />
+                </div>
+
+                <!-- <button onclick="window.location.href='login.html'; return false;" -->
+                <button onclick="window.location.href='profile.html'; return false;" class="submit-btn"
+                    style="width: 100%;">Login</button>
+
+                <p class="form-footer">
+                    Already have an account? <a href="login.html">Login</a>
+                </p>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (UNCHANGED) -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>
+                        We are a volunteer group spreading awareness about keeping our
+                        city clean and green.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Clean-up Drives</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Awareness Campaigns</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><a href="mailto:info@cleanawareness.com">info@cleanawareness.com</a></p>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p>Location: Chennai, India</p>
+                </div>
+
+            </div>
+
+            <p class="copyright">
+                © 2025 <a href="https://copyright.gov.in/">EcoClean Awareness</a> |
+                All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
