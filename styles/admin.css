@@ -411,6 +411,125 @@ tbody tr:hover {
   color: #2e8b57;
 }
 
+/* Event Registrations Section */
+.section-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.registrations-container {
+  padding: 25px;
+}
+
+.registration-event-card {
+  background: #f9fffe;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.registration-event-card:hover {
+  box-shadow: 0 4px 12px rgba(46, 139, 87, 0.15);
+  border-color: #3cb371;
+}
+
+.registration-event-header {
+  background: linear-gradient(135deg, #e8f5e9, #f0fff4);
+  padding: 20px;
+  border-bottom: 2px solid #3cb371;
+}
+
+.registration-event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.registration-event-title {
+  color: #2e8b57;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.registration-event-meta {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.registration-event-meta i {
+  color: #3cb371;
+  margin-right: 4px;
+}
+
+.registration-volunteer-count {
+  color: #2e8b57;
+  font-size: 1rem;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.registration-volunteer-count i {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.registration-volunteers-table {
+  padding: 20px;
+}
+
+.registration-volunteers-table table {
+  margin: 0;
+}
+
+.registration-volunteers-table thead th {
+  background: linear-gradient(135deg, #2e8b57, #3cb371);
+  font-size: 0.9rem;
+  padding: 12px 15px;
+}
+
+.registration-volunteers-table tbody td {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-registered {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.no-volunteers-message {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 0;
+}
+
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .admin-wrapper {
@@ -503,6 +622,32 @@ tbody tr:hover {
 
   .website-stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .registration-event-card {
+    margin-bottom: 15px;
+  }
+
+  .registration-event-header {
+    padding: 15px;
+  }
+
+  .registration-event-title {
+    font-size: 1.1rem;
+  }
+
+  .registration-event-meta {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .registration-volunteers-table {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  .registration-volunteers-table table {
+    font-size: 0.85rem;
   }
 }
 

@@ -31,6 +31,7 @@
                 <li><a href="#dashboard" class="active-page"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="#volunteers-section"><i class="fas fa-hands-helping"></i> Volunteers</a></li>
                 <li><a href="#events-section"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="#registrations-section"><i class="fas fa-user-check"></i> Event Registrations</a></li>
                 <li><a href="#messages-section"><i class="fas fa-envelope"></i> Messages</a></li>
                 <li><a href="../index.html"><i class="fas fa-globe"></i> View Website </a></li>
             </ul>
@@ -42,18 +43,8 @@
                 <p class="welcome-message">Welcome back! Manage your EcoClean community efficiently. 🌱</p>
 
                 <section class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-leaf icon-large"></i>
-                        <h3>Waste Diverted (Year)</h3>
-                        <p class="stat-value">500,000 kg</p>
-                        <span class="stat-trend"><i class="fas fa-chart-line"></i> +90% Growth</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-users icon-large"></i>
-                        <h3>Active Volunteers</h3>
-                        <p class="stat-value">50,000+</p>
-                        <span class="stat-trend"><i class="fas fa-arrow-up"></i> 12,000+ this month</span>
-                    </div>
+
+
                     <div class="stat-card">
                         <i class="fas fa-calendar-alt icon-large"></i>
                         <h3>Upcoming Events</h3>
@@ -69,35 +60,7 @@
                 </section>
             </div>
 
-            <div id="website-section">
-                <h2 class="section-title">Website Statistics</h2>
-                <section class="website-stats-grid">
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-eye"></i> Total Visitors</h4>
-                        <p class="website-stat-value">125,430</p>
-                    </div>
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-users"></i> Active Users</h4>
-                        <p class="website-stat-value">3,245</p>
-                    </div>
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-mouse-pointer"></i> Page Views</h4>
-                        <p class="website-stat-value">487,920</p>
-                    </div>
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-clock"></i> Avg. Session</h4>
-                        <p class="website-stat-value">4:32m</p>
-                    </div>
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-percentage"></i> Bounce Rate</h4>
-                        <p class="website-stat-value">32.5%</p>
-                    </div>
-                    <div class="website-stat-card">
-                        <h4><i class="fas fa-chart-line"></i> Growth Rate</h4>
-                        <p class="website-stat-value">+18.3%</p>
-                    </div>
-                </section>
-            </div>
+
 
             <div id="volunteers-section">
                 <h2 class="section-title">Volunteer Applications</h2>
@@ -200,7 +163,194 @@
                             <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
                         </div>
                     </div>
-                    <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> Add New Event</button>
+                    <a href="add-event.html" class="action-btn add-btn" style="text-decoration: none; display: flex;"><i
+                            class="fas fa-plus-circle"></i> Add New Event</a>
+                </div>
+            </div>
+
+            <div id="registrations-section">
+                <h2 class="section-title">Event Registrations</h2>
+                <p class="section-description">View all events and their registered volunteers</p>
+
+                <div class="registrations-container card">
+                    <!-- Event 1 -->
+                    <div class="registration-event-card">
+                        <div class="registration-event-header">
+                            <div class="registration-event-info">
+                                <h3 class="registration-event-title">Marina Beach Cleanup Drive</h3>
+                                <p class="registration-event-meta">
+                                    <i class="fas fa-calendar"></i> 15 Dec 2025 |
+                                    <i class="fas fa-clock"></i> 7:00 AM - 10:00 AM |
+                                    <i class="fas fa-map-marker-alt"></i> Marina Beach, Chennai
+                                </p>
+                                <p class="registration-volunteer-count">
+                                    <i class="fas fa-users"></i> <strong>3 Volunteers Registered</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="registration-volunteers-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Registration Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Priya Sharma</td>
+                                        <td>priya@example.com</td>
+                                        <td>+91 98765 43210</td>
+                                        <td>Dec 1, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vikram Singh</td>
+                                        <td>vikram@example.com</td>
+                                        <td>+91 98765 43211</td>
+                                        <td>Dec 2, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ananya Reddy</td>
+                                        <td>ananya@example.com</td>
+                                        <td>+91 98765 43212</td>
+                                        <td>Dec 3, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="registration-event-card">
+                        <div class="registration-event-header">
+                            <div class="registration-event-info">
+                                <h3 class="registration-event-title">City Park Green Initiative</h3>
+                                <p class="registration-event-meta">
+                                    <i class="fas fa-calendar"></i> 18 Dec 2025 |
+                                    <i class="fas fa-clock"></i> 6:30 AM - 9:30 AM |
+                                    <i class="fas fa-map-marker-alt"></i> Central Park, Chennai
+                                </p>
+                                <p class="registration-volunteer-count">
+                                    <i class="fas fa-users"></i> <strong>2 Volunteers Registered</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="registration-volunteers-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Registration Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Rajesh Kumar</td>
+                                        <td>rajesh@example.com</td>
+                                        <td>+91 98765 43213</td>
+                                        <td>Dec 5, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Meera Patel</td>
+                                        <td>meera@example.com</td>
+                                        <td>+91 98765 43214</td>
+                                        <td>Dec 6, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="registration-event-card">
+                        <div class="registration-event-header">
+                            <div class="registration-event-info">
+                                <h3 class="registration-event-title">Community Recycling Workshop</h3>
+                                <p class="registration-event-meta">
+                                    <i class="fas fa-calendar"></i> 22 Dec 2025 |
+                                    <i class="fas fa-clock"></i> 5:00 PM - 7:00 PM |
+                                    <i class="fas fa-map-marker-alt"></i> Community Hall, T Nagar
+                                </p>
+                                <p class="registration-volunteer-count">
+                                    <i class="fas fa-users"></i> <strong>4 Volunteers Registered</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="registration-volunteers-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Registration Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Amit Verma</td>
+                                        <td>amit@example.com</td>
+                                        <td>+91 98765 43215</td>
+                                        <td>Dec 7, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sneha Iyer</td>
+                                        <td>sneha@example.com</td>
+                                        <td>+91 98765 43216</td>
+                                        <td>Dec 8, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Karthik Nair</td>
+                                        <td>karthik@example.com</td>
+                                        <td>+91 98765 43217</td>
+                                        <td>Dec 9, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Divya Menon</td>
+                                        <td>divya@example.com</td>
+                                        <td>+91 98765 43218</td>
+                                        <td>Dec 10, 2025</td>
+                                        <td><span class="status-badge status-registered">Registered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 - No registrations -->
+                    <div class="registration-event-card">
+                        <div class="registration-event-header">
+                            <div class="registration-event-info">
+                                <h3 class="registration-event-title">Neighborhood Clean Streets Campaign</h3>
+                                <p class="registration-event-meta">
+                                    <i class="fas fa-calendar"></i> 28 Dec 2025 |
+                                    <i class="fas fa-clock"></i> 8:00 AM - 11:00 AM |
+                                    <i class="fas fa-map-marker-alt"></i> Anna Nagar, Chennai
+                                </p>
+                                <p class="registration-volunteer-count">
+                                    <i class="fas fa-users"></i> <strong>0 Volunteers Registered</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="registration-volunteers-table">
+                            <p class="no-volunteers-message">No volunteers have registered for this event yet.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -238,7 +388,7 @@
         </main>
     </div>
 
-    
+
 </body>
 
 </html>

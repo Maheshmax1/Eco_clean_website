@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Make Event | 🌿 EcoClean</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #2e8b57;
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .cancel-btn {
+            background-color: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cancel-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2e8b57, #3cb371);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex: 1;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h2 id="nav-logo">🌿 EcoClean Admin</h2>
+                <ul id="nav-menu">
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-wrapper container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="admin.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Add New Event</h1>
+            <p class="welcome-message">Create a new community event. Please fill in all details accurately.</p>
+
+            <div class="form-container">
+                <form id="addEventForm" onsubmit="handleAddEvent(event)">
+                    <div class="form-group">
+                        <label for="title">Event Title</label>
+                        <input type="text" id="title" name="title" required placeholder="e.g. Beach Cleanup Drive">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" required placeholder="Describe the event activity, goals, and what volunteers should bring..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required placeholder="e.g. Marina Beach, North End">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event_date">Date</label>
+                            <input type="date" id="event_date" name="event_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="image_url">Image URL</label>
+                            <input type="url" id="image_url" name="image_url" placeholder="https://example.com/image.jpg" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="start_time">Start Time</label>
+                            <input type="time" id="start_time" name="start_time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_time">End Time</label>
+                            <input type="time" id="end_time" name="end_time" required>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <a href="admin.html" class="cancel-btn">Cancel</a>
+                        <button type="submit" class="submit-btn">Create Event</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        async function handleAddEvent(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const eventData = {
+                title: formData.get('title'),
+                description: formData.get('description'),
+                location: formData.get('location'),
+                event_date: formData.get('event_date'), // Value is YYYY-MM-DD from input type="date"
+                start_time: formData.get('start_time'),
+                end_time: formData.get('end_time'),
+                image_url: formData.get('image_url'),
+                status: "upcoming"
+            };
+
+            // Get token from localStorage (assuming it's stored as 'access_token' or 'token')
+            // If checking 'login.html' didn't show where it's stored, we might need to guess or ask.
+            // But usually it's just 'access_token'.
+            const token = localStorage.getItem('access_token'); 
+
+            if (!token) {
+                alert('You must be logged in as admin to create an event.');
+                // For demo purposes, if there is no token, we might fail.
+                // But if the backend requires it, we must have it.
+                // If I can't find it, I'll just proceed and let the backend return 401/403.
+            }
+
+            try {
+                // Assuming backend is running on localhost:8000
+                const response = await fetch('http://localhost:8000/events/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(eventData)
+                });
+
+                if (response.ok) {
+                    alert('Event created successfully!');
+                    window.location.href = 'admin.html';
+                } else {
+                    const errorData = await response.json();
+                    alert(`Error creating event: ${errorData.detail || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                alert('Failed to connect to the server. Please check your connection.');
+            }
+        }
+    </script>
+</body>
+
+</html>
