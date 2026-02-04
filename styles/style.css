@@ -473,21 +473,11 @@ footer {
   }
 }
 
-
-.login-section {
-  flex: 1;
-  /* Pushes footer down */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  
-}
-
 .login-form {
   z-index: 2;
   width: 400px;
   max-width: 100%;
+
 }
 
 .login-container {
@@ -495,9 +485,9 @@ footer {
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  width: 100%;
+  width: 90%;
+  height: 70%;
   max-width: 500px;
-  
   text-align: center;
   z-index: 1;
 }
