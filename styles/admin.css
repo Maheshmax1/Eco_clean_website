@@ -343,34 +343,91 @@ tbody tr:hover {
   gap: 10px;
 }
 
-/* Messages */
-.message-summary {
+.messages-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.message-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #2e8b57;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
+  flex-direction: column;
+  position: relative;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
-  gap: 15px;
 }
 
-.message-summary:last-child {
-  border-bottom: none;
+.message-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(46, 139, 87, 0.15);
 }
 
-.message-summary p {
-  flex: 1;
-  font-size: 0.95rem;
+.priority-badge {
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.message-date {
-  color: #999;
-  font-size: 0.85rem;
-  white-space: nowrap;
+.priority-high {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
-.view-btn-small {
-  padding: 6px 12px;
-  font-size: 0.8rem;
+.priority-medium {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+}
+
+.priority-low {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.priority-emergency {
+  background: #18181b;
+  color: #ffffff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.message-category-tag {
+  background: #f4f4f5;
+  color: #52525b;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 12px;
+  border: 1px solid #e4e4e7;
 }
 
 /* Website Stats Section */

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Make Event | 🌿 EcoClean</title>
+    <title>Edit Event | 🌿 EcoClean</title>
     <link rel="stylesheet" href="../styles/admin.css">
     <style>
         .form-container {
@@ -103,7 +103,7 @@
                 <h2 id="nav-logo">🌿 EcoClean Admin</h2>
                 <ul id="nav-menu">
                     <li><a href="admin.html">Dashboard</a></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="../index.html">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -112,31 +112,29 @@
     <div class="admin-wrapper container">
         <aside class="sidebar">
             <ul class="sidebar-menu">
-                <li><a href="admin.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a></li>
+                <li><a href="admin.html"> Back to Dashboard</a></li>
             </ul>
         </aside>
 
         <main class="main-content">
-            <h1 class="page-title">Add New Event</h1>
-            <p class="welcome-message">Create a new community event. Please fill in all details accurately.</p>
+            <h1 class="page-title">Edit Event</h1>
+            <p class="welcome-message">Update the event details below.</p>
 
             <div class="form-container">
-                <form id="addEventForm" onsubmit="handleAddEvent(event)">
+                <form id="editEventForm" onsubmit="handleEditEvent(event)">
                     <div class="form-group">
                         <label for="title">Event Title</label>
-                        <input type="text" id="title" name="title" required placeholder="e.g. Beach Cleanup Drive">
+                        <input type="text" id="title" name="title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="4" required
-                            placeholder="Describe the event activity, goals, and what volunteers should bring..."></textarea>
+                        <textarea id="description" name="description" rows="4" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" id="location" name="location" required
-                            placeholder="e.g. Marina Beach, North End">
+                        <input type="text" id="location" name="location" required>
                     </div>
 
                     <div class="form-row">
@@ -146,8 +144,7 @@
                         </div>
                         <div class="form-group">
                             <label for="image_url">Image URL</label>
-                            <input type="url" id="image_url" name="image_url"
-                                placeholder="https://example.com/image.jpg" required>
+                            <input type="url" id="image_url" name="image_url" required>
                         </div>
                     </div>
 
@@ -164,17 +161,14 @@
 
                     <div class="btn-container">
                         <a href="admin.html" class="cancel-btn">Cancel</a>
-                        <button type="submit" class="submit-btn">Create Event</button>
+                        <button type="submit" class="submit-btn">Update Event</button>
                     </div>
                 </form>
             </div>
         </main>
     </div>
 
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <script src="../js/add-event.js"></script>
+    <script src="../js/edit-event.js"></script>
 </body>
 
 </html>

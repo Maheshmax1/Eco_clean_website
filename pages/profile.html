@@ -19,6 +19,7 @@
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./events.html">Events</a></li>
                     <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="#" onclick="logout(event)">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,10 +29,10 @@
         <div class="container">
             <div class="profile-info">
                 <div class="profile-avatar">👤</div>
-                <div class="profile-text">
-                    <h1>Welcome, Mahesh!</h1>
-                    <p><strong>Volunteer ID:</strong> ECO-VOL-101</p>
-                    <p><strong>Email:</strong> mahesh@example.com</p>
+                <div class="profile-text" id="volunteer-profile-details">
+                    <h1>Welcome!</h1>
+                    <p><strong>Volunteer ID:</strong> <span id="vol-id">Loading...</span></p>
+                    <p><strong>Email:</strong> <span id="vol-email">Loading...</span></p>
                 </div>
             </div>
         </div>
@@ -40,31 +41,9 @@
     <section class="dashboard-container">
         <div class="container">
             <h2>My Registered Events</h2>
-            <div class="events-grid">
-                <!-- Sample Registered Event Card 1 -->
-                <div class="event-card">
-                    <div class="card-image" style="background-image: url('../assets/marina.jpg');">
-                        <span class="status-badge upcoming">Upcoming</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Marina Beach Cleanup Drive</h3>
-                        <p class="location">📍 Marina Beach</p>
-                        <p class="date">📅 15 Nov 2025</p>
-                    </div>
-                </div>
-
-                <!-- Sample Registered Event Card 2 -->
-                <div class="event-card">
-                    <div class="card-image" style="background-image: url('../assets/adyar-park.jpg');">
-                        <span class="status-badge upcoming">Upcoming</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>River Adyar Restoration</h3>
-                        <p class="location">📍 River Adyar</p>
-                        <p class="date">📅 22 Nov 2025</p>
-                    </div>
-                </div>
-
+            <div class="events-grid" id="registered-events-list">
+                <!-- Registered events will be loaded here -->
+                <p style="text-align: center; padding: 20px; width: 100%;">Loading your registered events...</p>
             </div>
     </section>
 
@@ -86,7 +65,7 @@
                         <li><a href="./about.html">About</a></li>
                         <li><a href="./events.html">Events</a></li>
                         <li><a href="./contact.html">Contact</a></li>
-                        <li><a href="./login.html">Login</a></li>
+                        <li><a href="../index.html#auth-section">Login</a></li>
                     </ul>
                 </div>
 
@@ -127,6 +106,8 @@
             </p>
         </div>
     </footer>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>

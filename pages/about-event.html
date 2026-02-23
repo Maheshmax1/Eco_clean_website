@@ -22,7 +22,7 @@
           <li><a href="./about.html">About</a></li>
           <li><a href="./events.html">Events</a></li>
           <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./login.html">Login</a></li>
+          <li><a href="../index.html#auth-section">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -33,31 +33,30 @@
     <div class="event-card">
 
       <!-- Event Image -->
-      <div>
-        <img src="../assets/marina.jpg" alt="Web Development Workshop">
-        <p class="location">📍 Location: Chennai, Tamil Nadu</p>
+      <div id="event-header-image">
+        <img src="../assets/placeholder.jpg" alt="Event Image" id="event-image">
+        <p class="location" id="event-location">📍 Location: Loading...</p>
       </div>
 
       <!-- Event Details -->
-      <div class="event-details">
-        <h2>Web Development Workshop</h2>
+      <div class="event-details" id="event-content">
+        <h2 id="event-title">Event Title</h2>
 
-        <p class="info"> Date: 25 Feb 2026</p>
-        <p class="info"> Time: 10:00 AM – 4:00 PM</p>
+        <p class="info" id="event-date"> Date: Loading...</p>
+        <p class="info" id="event-time"> Time: Loading...</p>
 
-        <p>
-          This Web Development Workshop is a beginner-friendly event focused on
-          teaching the fundamentals of web development. Participants will learn
-          how to build simple and responsive web pages using HTML, CSS, and basic
-          JavaScript.
-        </p>
+        <div id="event-description">
+          <p>Please wait while we fetch the event details...</p>
+        </div>
 
-        <p>
-          The session will include practical examples, live demonstrations, and
-          guided exercises to help learners gain real-world experience. By the
-          end of the event, attendees will have a clear understanding of how
-          websites work.
-        </p>
+        <div id="registered-volunteers-section" style="margin-top: 25px; display: none;">
+          <h3
+            style="color: #2e8b57; font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+            👥 Joined Volunteers</h3>
+          <ul id="volunteers-list" style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px;">
+            <!-- Volunteer tags will be added here -->
+          </ul>
+        </div>
 
         <a href="./greet.html" class="btn">Click to Join Event</a>
       </div>
@@ -85,7 +84,7 @@
             <li><a href="./about.html">About</a></li>
             <li><a href="./events.html">Events</a></li>
             <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./login.html">Login</a></li>
+            <li><a href="../index.html#auth-section">Login</a></li>
           </ul>
         </div>
 
@@ -126,6 +125,8 @@
     </div>
   </footer>
 
+  <script src="../js/navbar.js"></script>
+  <script src="../js/event-detail.js"></script>
 </body>
 
 </html>

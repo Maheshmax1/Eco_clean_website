@@ -556,12 +556,56 @@ nav {
   font-size: 0.9rem;
 }
 
-.form-footer a {
+.toggle-link {
   color: #2e7d32;
-  text-decoration: none;
+  cursor: pointer;
   font-weight: 600;
+  transition: all 0.3s;
 }
 
-.form-footer a:hover {
+.toggle-link:hover {
   text-decoration: underline;
+  color: #1b5e20;
+}
+
+/* Form Toggling Logic */
+#auth-toggle:checked~.login-section .signup-form-container {
+  display: block;
+}
+
+#auth-toggle:checked~.login-section .login-form-container {
+  display: none;
+}
+
+#auth-toggle:not(:checked)~.login-section .signup-form-container {
+  display: none;
+}
+
+#auth-toggle:not(:checked)~.login-section .login-form-container {
+  display: block;
+}
+
+/* Ensure consistent positioning */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.login-form-container,
+.signup-form-container {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

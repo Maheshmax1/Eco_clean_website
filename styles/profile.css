@@ -493,11 +493,16 @@ h2 {
   transform: translateY(-5px);
 }
 
-.card-image {
+.card-image-wrapper {
   height: 180px;
-  background-size: cover;
-  background-position: center;
   position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .status-badge {
@@ -526,6 +531,7 @@ h2 {
 .card-content h3 {
   margin-bottom: 10px;
   color: #2e7d32;
+  font-size: 1.3rem;
 }
 
 .card-content p {
