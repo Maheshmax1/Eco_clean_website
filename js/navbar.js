@@ -1,52 +1,63 @@
-document.addEventListener('DOMContentLoaded', updateNavbar);
 
-function updateNavbar() {
+document.addEventListener('DOMContentLoaded', () => {
+    // Retrieve  the data in local storage
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
-    const navMenu = document.getElementById('nav-menu');
 
+    const navMenu = document.getElementById('nav-menu');
     if (!navMenu) return;
 
+
+
+    //  *Changes Login into Profile/Dashboard
+
     if (token) {
-        // Find existing Login link
-        const loginLink = Array.from(navMenu.querySelectorAll('a')).find(a =>
-            a.textContent.toLowerCase().includes('login') ||
-            a.href.includes('auth-section')
-        );
+        //  ensure correct relative linking
+        const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
 
-        if (loginLink) {
-            const isIndex = window.location.pathname.endsWith('index.html') ||
-                window.location.pathname.endsWith('/') ||
-                (!window.location.pathname.includes('.html') && !window.location.pathname.includes('pages/'));
+        //  user permission level
+        let profilePath = role === 'admin' ? 'pages/admin.html' : 'pages/profile.html';
 
-            let profilePath;
-            if (role === 'admin') {
-                profilePath = isIndex ? 'pages/admin.html' : 'admin.html';
-            } else {
-                profilePath = isIndex ? 'pages/profile.html' : 'profile.html';
+        // Adjust path if the user is already within the /pages/ directory
+        if (window.location.pathname.includes('/pages/')) {
+            profilePath = role === 'admin' ? 'admin.html' : 'profile.html';
+        }
+
+        const loginLinks = navMenu.querySelectorAll('a');
+        loginLinks.forEach(link => {
+            const text = link.textContent.toLowerCase();
+
+            // profile link chnage here
+            if (text.includes('login') || text.includes('sign up')) {
+                link.textContent = role === 'admin' ? 'Dashboard' : 'Profile';
+                link.href = profilePath;
             }
+        });
 
-            // Replace Login with Profile
-            loginLink.textContent = 'Profile';
-            loginLink.href = profilePath;
-
-            // REMOVED: Auto-adding logout button to global navbar
-            // if (!navMenu.querySelector('.logout-btn')) { ... }
+        // the user is already in
+        const authSection = document.getElementById('auth-section');
+        if (authSection) {
+            authSection.style.display = 'none';
         }
     }
-}
+});
 
-// Global logout function for use in dashboards
+/**
+ * logout button navigate to home.
+ * @param {Event} event - The click event from the logout button.
+ */
 function logout(event) {
-    if (event) event.preventDefault();
+    if (event) event.preventDefault(); // Stop default 
+
+    // Permanently clear credentials
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    alert('Logged out successfully');
 
-    const isIndex = window.location.pathname.endsWith('index.html') ||
-        window.location.pathname.endsWith('/') ||
-        (!window.location.pathname.includes('.html') && !window.location.pathname.includes('pages/'));
-
+    // Redirect to the main homepage
+    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
     window.location.href = isIndex ? 'index.html' : '../index.html';
 }
 
+// Expose the logout function globally so it can be called from onclick attributes in any file
 window.logout = logout;
