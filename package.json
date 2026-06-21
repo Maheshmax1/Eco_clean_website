@@ -1,0 +1,12 @@
+{
+  "name": "eco-clean-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix frontend run dev\" \"python -m uvicorn api.main:app --reload\"",
+    "build": "npm --prefix frontend run build",
+    "postinstall": "npm --prefix frontend install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
