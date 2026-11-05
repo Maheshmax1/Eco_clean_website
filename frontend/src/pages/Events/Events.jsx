@@ -6,7 +6,7 @@ import { apiService } from '../../services/apiService';
 import Card from '../../components/Card/Card';
 import Loader from '../../components/Loader/Loader';
 import { MdCalendarToday, MdAccessTime, MdLocationOn } from 'react-icons/md';
-import { FALLBACK_IMAGE } from '../../utils/constants';
+import { FALLBACK_IMAGE, getAssetUrl } from '../../utils/constants';
 
 const Events = () => {
   const { user } = useAuth();
@@ -131,7 +131,7 @@ const Events = () => {
           playsInline
           className="absolute z-0 min-w-full min-h-full object-cover opacity-75"
         >
-          <source src="/assets/volunteervedio (1).mp4" type="video/mp4" />
+          <source src={getAssetUrl('assets/volunteervedio (1).mp4')} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 to-slate-900/80 z-10" />

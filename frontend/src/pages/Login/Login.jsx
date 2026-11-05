@@ -13,8 +13,11 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Redirect target
-  const from = location.state?.from || '/profile';
+  // Redirect target after login
+  // With HashRouter, location.pathname is always '/', so we rely on the stored 'from' path
+  // If from is '/' or missing, default to '/profile' (admin will be redirected later)
+  const rawFrom = location.state?.from || '';
+  const from = (rawFrom && rawFrom !== '/') ? rawFrom : '/profile';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,7 +45,7 @@ const Login = () => {
     } else {
       toast.success('Successfully logged in!');
       const sessionUser = data?.user;
-      const isAdminUser = sessionUser?.user_metadata?.role === 'admin';
+      const isAdminUser = sessionUser?.user_metadata?.role === 'admin' || sessionUser?.role === 'admin' || data?.profile?.role === 'admin';
       
       // If the target page is the general volunteer profile, and they are admin, send to admin instead
       if (from === '/profile' && isAdminUser) {
@@ -88,6 +91,26 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             error={errors.password}
           />
+
+          <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3 text-xs text-slate-600">
+            <span className="font-semibold text-slate-700 block mb-1.5">⚡ Demo Accounts (Click to fill):</span>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => { setEmail('admin@ecoclean.org'); setPassword('admin123'); }}
+                className="flex-1 py-1 px-2 rounded-lg bg-white border border-slate-200 hover:border-primary-500 hover:text-primary-700 text-slate-700 font-medium transition-colors text-[11px] cursor-pointer shadow-2xs"
+              >
+                🛡️ Admin
+              </button>
+              <button
+                type="button"
+                onClick={() => { setEmail('volunteer@gmail.com'); setPassword('volunteer123'); }}
+                className="flex-1 py-1 px-2 rounded-lg bg-white border border-slate-200 hover:border-primary-500 hover:text-primary-700 text-slate-700 font-medium transition-colors text-[11px] cursor-pointer shadow-2xs"
+              >
+                👤 Volunteer
+              </button>
+            </div>
+          </div>
 
           <Button
             type="submit"

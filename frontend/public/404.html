@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EcoClean Awareness – Redirecting...</title>
+    <script>
+      // Single Page Application redirect for GitHub Pages or static hosts
+      // Redirects 404 paths to the hash route on index.html
+      (function() {
+        var pathSegments = location.pathname.split('/').filter(Boolean);
+        // If repo path like /Eco_clean_website/about, keep repo name
+        var repoName = pathSegments.length > 0 ? pathSegments[0] : '';
+        var remainingPath = pathSegments.slice(1).join('/');
+        var search = location.search ? location.search : '';
+        var hash = location.hash ? location.hash : '';
+
+        // If repository base exists (e.g. Eco_clean_website)
+        var targetBase = repoName ? '/' + repoName + '/' : '/';
+        var route = remainingPath ? '#/' + remainingPath : '#/';
+
+        location.replace(targetBase + route + search + hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to EcoClean...</p>
+  </body>
+</html>

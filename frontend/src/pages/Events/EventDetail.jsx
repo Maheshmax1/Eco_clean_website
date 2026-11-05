@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useFetch } from '../../hooks/useFetch';
 import { apiService } from '../../services/apiService';
@@ -14,7 +14,6 @@ const EventDetail = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [joining, setJoining] = useState(false);
 
   // Fetch event details callback
@@ -26,10 +25,11 @@ const EventDetail = () => {
   const { data: event, loading, error, execute: refetchDetails } = useFetch(fetchDetailCallback);
 
   const handleJoinEvent = async () => {
-    // If user is not authenticated, redirect to login page, saving this page as redirect target
+    // If user is not authenticated, redirect to login page, saving this event's route as redirect target
     if (!user) {
       toast.error('Please login to join this cleanup drive!');
-      navigate('/login', { state: { from: location.pathname } });
+      // Store the specific event path so Login.jsx can redirect back after login
+      navigate('/login', { state: { from: `/events/${id}` } });
       return;
     }
 

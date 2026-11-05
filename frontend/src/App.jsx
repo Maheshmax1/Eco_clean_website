@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import AppRoutes from './routes/AppRoutes';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         {/* Central Router Application */}
         <AppRoutes />
@@ -40,7 +40,7 @@ function App() {
           }}
         />
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

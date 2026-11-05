@@ -42,3 +42,18 @@ export const ABOUT_US_TEXT = 'We are a volunteer group spreading awareness about
 export const CONTACT_EMAIL = 'info@cleanawareness.com';
 export const CONTACT_PHONE = '+91 98765 43210';
 export const CONTACT_LOCATION = 'Chennai, India';
+
+/**
+ * Resolves static asset paths correctly regardless of deployment root,
+ * subpath (e.g. GitHub Pages /Eco_clean_website/), or relative builds.
+ */
+export const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:') || path.startsWith('blob:')) {
+    return path;
+  }
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  const base = import.meta.env.BASE_URL || './';
+  return base.endsWith('/') ? `${base}${clean}` : `${base}/${clean}`;
+};
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { HiMenu, HiX } from 'react-icons/hi';
@@ -17,6 +17,8 @@ import toast from 'react-hot-toast';
 const DashboardLayout = ({ children }) => {
   const { profile, isAdmin, signOut } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  // Track the currently active section by id (for sidebar highlight)
+  const [activeSection, setActiveSection] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,23 +46,36 @@ const DashboardLayout = ({ children }) => {
 
   const handleLinkClick = (hash) => {
     setSidebarOpen(false);
+    const targetPath = isAdmin ? '/admin' : '/profile';
     if (hash) {
-      navigate(`${isAdmin ? '/admin' : '/profile'}${hash}`);
-      // Smooth scroll to the section
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      // Navigate to the dashboard page first (if not already there), then scroll
+      const sectionId = hash.substring(1); // strip leading '#'
+      setActiveSection(sectionId);
+      if (location.pathname !== targetPath) {
+        navigate(targetPath);
       }
+      // Use setTimeout to allow the page content to render before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
     } else {
-      navigate(isAdmin ? '/admin' : '/profile');
+      setActiveSection('');
+      navigate(targetPath);
+      // Scroll to top when going to dashboard overview
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
     }
   };
 
   const isLinkActive = (link) => {
     if (link.hash) {
-      return location.hash === link.hash;
+      // Active when this section is selected via sidebar click
+      return activeSection === link.hash.substring(1);
     }
-    return location.pathname === link.path && location.hash === '';
+    // Active when no section is selected and we're on the base path
+    return activeSection === '' && location.pathname === link.path;
   };
 
   return (

@@ -8,6 +8,7 @@ import Card from '../../components/Card/Card';
 import toast from 'react-hot-toast';
 import { MdEmail, MdLock, MdPerson, MdPhone, MdWater, MdCleaningServices, MdForest, MdOutlineRecycling } from 'react-icons/md';
 import { HiOutlineSparkles, HiOutlineUserGroup, HiOutlineGlobeAlt } from 'react-icons/hi2';
+import { getAssetUrl } from '../../utils/constants';
 
 const Home = () => {
   const { signIn, signUp, user, isAdmin } = useAuth();
@@ -53,7 +54,7 @@ const Home = () => {
       toast.success('Welcome back to EcoClean!');
       // Fetch metadata profiles to check roles
       const sessionUser = data?.user;
-      const isAdminUser = sessionUser?.user_metadata?.role === 'admin';
+      const isAdminUser = sessionUser?.user_metadata?.role === 'admin' || sessionUser?.role === 'admin' || data?.profile?.role === 'admin';
       navigate(isAdminUser ? '/admin' : '/profile');
     }
   };
@@ -103,7 +104,7 @@ const Home = () => {
           playsInline
           className="absolute z-0 min-w-full min-h-full object-cover opacity-85"
         >
-          <source src="/assets/main_vedio.mp4" type="video/mp4" />
+          <source src={getAssetUrl('assets/main_vedio.mp4')} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useFetch } from '../../hooks/useFetch';
 import { apiService } from '../../services/apiService';
@@ -29,7 +29,6 @@ import {
 const Dashboard = () => {
   const { user, profile, isAdmin, loading: authLoading } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   // --- VOLUNTEER PERSPECTIVE STATE ---
   const fetchMyRegs = React.useCallback(() => {
@@ -37,7 +36,8 @@ const Dashboard = () => {
     return apiService.fetchUserRegistrations(user.id);
   }, [user]);
   
-  const { data: myRegistrations, loading: regLoading, execute: refetchMyRegs } = useFetch(fetchMyRegs, !isAdmin);
+  // Only fetch registrations after auth has resolved AND the user is confirmed a volunteer (not admin)
+  const { data: myRegistrations, loading: regLoading, execute: refetchMyRegs } = useFetch(fetchMyRegs, !authLoading && !isAdmin && !!user);
 
   // --- ADMIN PERSPECTIVE STATE ---
   const [stats, setStats] = useState({ upcoming_events: 0, completed_events: 0 });
@@ -84,18 +84,8 @@ const Dashboard = () => {
     }
   }, [isAdmin]);
 
-  // Handle hash scrolling on page load/hash change
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.substring(1);
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
-  }, [location]);
+  // Section scrolling is handled by DashboardLayout's handleLinkClick via scrollIntoView
+  // No hash-based scroll needed here (HashRouter uses hash for routing, not anchor scrolling)
 
   // --- ADMIN ACTIONS ---
 

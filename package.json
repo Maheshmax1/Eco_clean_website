@@ -1,9 +1,11 @@
 {
-  "name": "eco-clean-monorepo",
+  "name": "eco-clean-website",
   "version": "1.0.0",
+  "description": "EcoClean Awareness - Fully Static Community Environmental Initiative Website",
   "scripts": {
-    "dev": "concurrently \"npm --prefix frontend run dev\" \"python -m uvicorn api.main:app --reload\"",
+    "dev": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
     "postinstall": "npm --prefix frontend install"
   },
   "devDependencies": {

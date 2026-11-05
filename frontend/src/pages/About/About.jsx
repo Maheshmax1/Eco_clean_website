@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../../components/Card/Card';
+import { getAssetUrl } from '../../utils/constants';
 
 const About = () => {
   const [activeProject, setActiveProject] = useState('beach');
@@ -7,20 +8,20 @@ const About = () => {
   const comparisons = {
     beach: {
       title: 'Marina Beach Cleanup Project',
-      before: '/assets/beach.withplatic (1).png',
-      after: '/assets/beach.withplatic (2).png',
+      before: getAssetUrl('assets/beach.withplatic (1).png'),
+      after: getAssetUrl('assets/beach.withplatic (2).png'),
       desc: 'Cleared over 500kg of microplastics, wrappers, and discarded nets from the sandy shoreline, protecting marine turtles and restoring coastal beauty.',
     },
     park: {
       title: 'Adyar City Park Restoration',
-      before: '/assets/park_polluted_real.png',
-      after: '/assets/park_clean_real.png',
+      before: getAssetUrl('assets/park_polluted_real.png'),
+      after: getAssetUrl('assets/park_clean_real.png'),
       desc: 'Cleaned up illegal litter dump sites, repainted benches, weeded walkways, and planted indigenous saplings for a fresh, safe neighborhood playground.',
     },
     river: {
       title: 'Cooum River Bank Drive',
-      before: '/assets/river_polluted (1).png',
-      after: '/assets/river_clean.png',
+      before: getAssetUrl('assets/river_polluted (1).png'),
+      after: getAssetUrl('assets/river_clean.png'),
       desc: 'Tackled floating trash build-up and bank plastic accumulation, educating neighboring slums on sustainable refuse disposal methods.',
     },
   };
